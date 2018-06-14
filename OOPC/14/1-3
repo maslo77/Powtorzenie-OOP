@@ -1,0 +1,62 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <functional>
+#include <sstream>
+#include <cctype>
+/*ZADANIE 1
+bool notInRange(int min, int max, int value){
+    return value <min || value> max;
+
+}
+void zeroIfNotInRange(std::vector<int> &vec, int min, int max)
+{
+    std::function<bool(int)> f = std::bind(notInRange,min,max,std::placeholders::_1);
+    std::replace_if(vec.begin(),vec.end(),f,0);
+}
+*/
+/* ZADANIE 2
+void capitalizeTostream(std::ostream &os, std::string text){
+    os<<(char)toupper(text[0]);
+    for(int i = 1; i< text.size();i++)
+        os<<(char)::tolower(text[i]);
+    os<<std::endl;
+
+}
+void showWordWithLetter(std:: string &s, char l, std:: function <void(std::string)>display){
+    std::stringstream  ss;
+    ss.str(&s);
+    std::string word;
+    while(ss>>word){
+        if(word,find(l)!=std::string::npos){
+            display(word);
+        }
+    }
+}*/
+int main()
+{
+   /* ZADANIE 1
+    std::vector<int> v;
+   v.push_back(1);
+    v.push_back(2);
+     v.push_back(3);
+      v.push_back(4);
+       v.push_back(5);
+       zeroIfNotInRange(v,2,4);
+       for(int i:v)
+           std::cout<<i<<" ";*/
+   /* ZADANIE 2 std::function<void(std::string)> f=std::bind(capitalizeToStream,std::ref(std::cout),std::placeholders::_1);
+    showWordWithLetter(std::string("Ala ma kota a Tola ma tygrysa"),"a",f); */
+    std::vector<Point> vec(3);
+    vec[0] = Point{4,6};
+    vec[1] = Point{1,2};
+    vec[2] = Point{10,3};
+    std::sort(vec.begin(), vec.begin(), [](const Point &p,const Point &q){
+        return p.x<q.x;
+    });
+    for(const Point &p: vec)
+    {
+        std::cout<<p.x<<" "<<p.y
+    }
+    return 0;
+}
